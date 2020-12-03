@@ -2,10 +2,11 @@ body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
 }
-
-.app {
-  height: 100vh;
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
 }
+
 
 .container {
   overflow: hidden;
@@ -14,8 +15,6 @@ body {
 }
 
 .over {
-  overflow-y: scroll;
-  height: 70vh;
   margin-top: 20px;
 }
 

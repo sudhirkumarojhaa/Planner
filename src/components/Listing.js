@@ -2,7 +2,8 @@ import React,{useState,useEffect} from 'react'
 import moment from 'moment';
 import { Button } from 'react-bootstrap';
 import Priority from "./Priority";
-import { CloudSnow, Trash2} from 'react-feather';
+import {Trash2} from 'react-feather';
+import src from '../c.png';
 
 export default function Listing() {
   const [list,setList]=useState([]);
@@ -35,9 +36,7 @@ export default function Listing() {
 
   return (
     <div className="mt-4 list">
-      {searchArray && searchArray.length !==0 ?
-      <>
-      <h6 className="font-weight-bold mb-3">showing {searchArray.length} results</h6>
+      <h6 className="font-weight-bold mb-3">showing {searchArray && searchArray.length} results</h6>
       <input type="text" placeholder="search an item ..." className="w-100 p-2" onChange={e=> setName(e.target.value)}></input>
       <div className="d-flex justify-content-between align-items-center mt-2">
         <p className="mt-2 font-weight-bold">sort by priority :</p>
@@ -57,7 +56,7 @@ export default function Listing() {
         <Button className="button ml-4" variant="primary" size="sm" onClick={()=> setLevel('')}>
           show all results
         </Button>
-      </div> : null}</> : null}
+      </div> : null}
       <div className="over">
       {searchArray && searchArray.length !== 0 ?
       searchArray.map(item=>
@@ -74,15 +73,15 @@ export default function Listing() {
               </div>
             </div>
             <div className="ml-4 flex-column d-flex justify-content-between">
-              <p>{item.text}</p>
+              <p className="font-weight-bold">{item.text}</p>
               <Trash2 size={16} onClick={()=> deleteItem(item.key)}  className="mr-4"/>
             </div>
           </div>
         </div>
       ) :
       <div className="mt-5 d-flex flex-column justify-content-center align-items-center">
-        <CloudSnow size={36} className="text-center mt-5 mb-4"/>
         <p className="text-center">no saved cards found.</p>
+        <img src={src} alt="no" className="w-25 align-self-center"/>
         <p className="text-center">you can always start fresh by clicking on the pen icon in the header.</p>
       </div>
       }

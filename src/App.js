@@ -11,7 +11,7 @@ import ListBox from "./components/ListBox";
 
 
 const App = () => {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
   const [showBar, setShowBar] = useState(false);
   const [showNotes, setShowNotes] = useState(false);
   const [list,setList]=useState(false);
@@ -38,7 +38,7 @@ const App = () => {
   }
 
   return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+    <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
       <>
       <GlobalStyles/>
       <div className="app">
