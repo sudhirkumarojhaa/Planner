@@ -36,7 +36,7 @@ export default function ListBox({show,handleClose,handleLevel}) {
       <Modal.Body className="p-4 w-100 d-flex justify-content-center align-items-center flex-wrap">
         {data.length !==0 ?
           data.map(item=>
-          <div className="card p-4 m-2 w-100 bg-danger">
+          <div className="card p-4 m-2 w-100 bg-info">
             <p className="font-weight-bold text-white">{item.text}</p>
             <div className="abs"> <X size={14} color={'#fff'} onClick={()=> handleDelete(item.key)}/></div>
           </div>

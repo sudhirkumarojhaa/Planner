@@ -33,16 +33,16 @@ export default function ModalBox({show,handleClose,handleLevel}) {
         <Form>
           <Form.Group controlId="exampleForm.ControlTextarea1">
             <Form.Label className="text-dark">agenda:</Form.Label>
-            <Form.Control as="textarea" placeholder="add your tasks here"  rows={5} onChange={e=> setText(e.target.value)} maxLength="100"/>
+            <Form.Control className="search" as="textarea" placeholder="add your tasks here"  onChange={e=> setText(e.target.value)} maxLength="100"/>
           </Form.Group>
           <Form.Label className="text-dark">priority:</Form.Label>
           <div className="d-flex justify-content-start align-items-center">
-            <Priority bg="green" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
-            <Priority bg="orange" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
-            <Priority bg="#0cf" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
-            <Priority bg="red" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
-            <Priority bg="yellow" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
-            <Priority bg="purple" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
+            <Priority  bg="#99feaf" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
+            <Priority  bg="orange" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
+            <Priority  bg="#70ddf7" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
+            <Priority  bg="#fb6a6b" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
+            <Priority  bg="#fff36d" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
+            <Priority  bg="#73e3fd" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
         </div>
         </Form>
       </Modal.Body>

@@ -37,22 +37,22 @@ export default function Listing() {
   return (
     <div className="mt-4 list">
       <h6 className="font-weight-bold mb-3">showing {searchArray && searchArray.length} results</h6>
-      <input type="text" placeholder="search an item ..." className="w-100 p-2" onChange={e=> setName(e.target.value)}></input>
+      <input type="text" placeholder="search an item here..." className="w-100 p-2 search" onChange={e=> setName(e.target.value)}></input>
       <div className="d-flex justify-content-between align-items-center mt-2">
         <p className="mt-2 font-weight-bold">sort by priority :</p>
         <div className="d-flex justify-content-start align-items-center">
-          <Priority  bg="green" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
+          <Priority  bg="#99feaf" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
           <Priority  bg="orange" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
-          <Priority  bg="#0cf" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
-          <Priority  bg="red" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
-          <Priority  bg="yellow" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
-          <Priority  bg="purple" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
+          <Priority  bg="#70ddf7" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
+          <Priority  bg="#fb6a6b" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
+          <Priority  bg="#fff36d" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
+          <Priority  bg="#73e3fd" onClick={(e)=> setLevel(e.target.style.backgroundColor)}/>
         </div>
       </div>
       {level ?
       <div className="d-flex justify-content-start align-items-center mt-2">
         <p className="font-weight-bold mt-2">now showing results for :</p>
-        <div style={{backgroundColor: level, width: 25,height: 25, marginLeft: 20}}></div>
+        <div style={{backgroundColor: level, width: 30,height: 30, marginLeft: 20,borderRadius: 30}}></div>
         <Button className="button ml-4" variant="primary" size="sm" onClick={()=> setLevel('')}>
           show all results
         </Button>
@@ -61,21 +61,14 @@ export default function Listing() {
       {searchArray && searchArray.length !== 0 ?
       searchArray.map(item=>
         <div key={item.key} className="d-flex justify-content-between my-4">
-           <div className="d-flex">
-           <div style={{backgroundColor: item.level, width: 10,height: 95}}></div>
-            <div>
-              <div className="border dateBox px-4 py-2">
-                <h4 className="date">{moment.unix(item.key).format("DD")}</h4>
-                <h6 className="date">{moment.unix(item.key).format("MMM")}</h6>
+            <div className="flex-column w-100 bg py-1 mt-4 d-flex justify-content-between">
+              <h3 className="font-weight-bold">{item.text}</h3>
+              <div className="d-flex my-4">
+                <div style={{backgroundColor: item.level, width: 20,height: 20, borderRadius: 30}}></div>
+                <h6 className="font-weight-bold mx-3">{moment.unix(item.key).format("DD MMMM,   YYYY")}</h6>
+                <h6 className="font-weight-bold mx-3">{moment.unix(item.key).format("hh:mm A")}</h6>
+                <Trash2 size={16} onClick={()=> deleteItem(item.key)}  className="mr-4"/>
               </div>
-              <div className="border d-flex justify-content-center align-items-center">
-               <span className="text-center">{moment.unix(item.key).format("hh:mm A")}</span>
-              </div>
-            </div>
-            <div className="ml-4 flex-column d-flex justify-content-between">
-              <p className="font-weight-bold">{item.text}</p>
-              <Trash2 size={16} onClick={()=> deleteItem(item.key)}  className="mr-4"/>
-            </div>
           </div>
         </div>
       ) :
